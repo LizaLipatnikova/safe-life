@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'imagekit',
+    'django_ckeditor_5',
     'articles',
     'main',
 ]
@@ -114,10 +115,39 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+# Обработка статических файлов (CSS, JavaScript, Images)
+STATIC_URL = 'static/' # Адрес для статики
+STATIC_ROOT = BASE_DIR / 'static' # Папка сбора статики командой python manage.py collectstatic
 
-STATIC_URL = 'static/'
+# Медиа файлы (файлы загруженные пользователем)
+MEDIA_URL = '/media/' # Адрес для медиа
+MEDIA_ROOT = BASE_DIR / 'media' # Папка хранения медиа
+
+# Настройка панели инструментов для Ckeditor
+DJANGO_CKEDITOR_5_CUSTOM_TOOLBAR = [
+    ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "blockQuote"],
+    ["imageUpload", "insertTable", "mediaEmbed", "|", "undo", "redo"],
+]
+
+# Другие настройки Ckeditor
+DJANGO_CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": DJANGO_CKEDITOR_5_CUSTOM_TOOLBAR,
+        "width": "100%",
+        "height": "400px",
+        "language": "ru",
+        "heading": {
+            "options": [
+                {"model": "paragraph", "title": "Параграф", "class": "ck-heading_paragraph"},
+                {"model": "heading1", "view": "h1", "title": "Заголовок", "class": "ck-heading_heading1"},
+            ]
+        },
+    },
+}
+
+# Путь для загрузки файлов CKEditor 5
+DJANGO_CKEDITOR_5_UPLOAD_PATH = "ckeditor/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
