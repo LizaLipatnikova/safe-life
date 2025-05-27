@@ -123,26 +123,43 @@ STATIC_ROOT = BASE_DIR / 'static' # Папка сбора статики ком�
 MEDIA_URL = '/media/' # Адрес для медиа
 MEDIA_ROOT = BASE_DIR / 'media' # Папка хранения медиа
 
-# Настройка панели инструментов для Ckeditor
-DJANGO_CKEDITOR_5_CUSTOM_TOOLBAR = [
-    ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "blockQuote"],
-    ["imageUpload", "insertTable", "mediaEmbed", "|", "undo", "redo"],
-]
-
-# Другие настройки Ckeditor
-DJANGO_CKEDITOR_5_CONFIGS = {
-    "default": {
-        "toolbar": DJANGO_CKEDITOR_5_CUSTOM_TOOLBAR,
-        "width": "100%",
-        "height": "400px",
-        "language": "ru",
-        "heading": {
-            "options": [
-                {"model": "paragraph", "title": "Параграф", "class": "ck-heading_paragraph"},
-                {"model": "heading1", "view": "h1", "title": "Заголовок", "class": "ck-heading_heading1"},
+# Настройки Ckeditor
+CKEDITOR_5_CONFIGS = {
+        'default': {
+        # Инструменты редактора
+        'toolbar': [
+                    'undo', 'redo', '|', 'heading', '|',
+                    'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough', 'highlight', '|',
+                    'insertImage', 'bulletedList', 'numberedList',  'blockQuote', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'insertTable',],
+        
+        # Настройка возможностей вставки изображений
+        'image': {
+            'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
+                        'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
+            'styles': [
+                'full',
+                'side',
+                'alignLeft',
+                'alignRight',
+                'alignCenter',
             ]
+
         },
-    },
+        # Настройка возможностей вставки таблицы
+        'table': {
+            'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
+            'tableProperties', 'tableCellProperties' ],
+        },
+        # Настройка списка заголовков и шрифтов
+        'heading' : {
+            'options': [
+                { 'model': 'paragraph', 'title': 'Текст', 'class': 'text' },
+                { 'model': 'heading1', 'view': 'h2', 'title': 'Заголовок', 'class': 'title' },
+                { 'model': 'heading2', 'view': 'h3', 'title': 'Подзаголовок', 'class': 'sub-title' }
+            ]
+        }
+    }
 }
 
 # Путь для загрузки файлов CKEditor 5
