@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Загрузка стилей для bootstrap -->
+    {% bootstrap_css %}
+
+    <!-- Стити для переопределения некоторых элементов bootstrap -->
+    <link rel="stylesheet" href="/static/css/base.css">
+
+    <!-- Дополнительный блок для пользовательских стилей -->
+    {% block css %}{% endblock css %}
+
+    <!-- Название страницы будет переопределятся каждой страницой -->
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    {% block content %}{% endblock content %}
+    
+    <!-- Загрузка скриптов для bootstrap -->
+    {% bootstrap_javascript %}
+    {% block js %}{% endblock js %}
+</body>
+</html>

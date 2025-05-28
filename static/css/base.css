@@ -1,0 +1,15 @@
+/* Переопределение стандартной палитры bootstrap */
+:root {
+    --bs-primary: #386641;
+    --bs-secondary: #a7c957;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-main {
+    background-color: var(--bs-primary);
+}

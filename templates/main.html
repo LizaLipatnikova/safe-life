@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Safe Life{% endblock title %}
+
+{% block content %}
+    <!-- Навигационное меню -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-main">
+        <div class="container">
+            <a class="navbar-brand" href="#">Safe-Life</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Статьи</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Обратная связь</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="container mt-4 flex-grow-1">
+        {% block main %}{% endblock main %}
+    </main>
+
+    <!-- Подвал -->
+    <footer class="text-white py-4 mt-5 bg-main">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6">
+                    <h5>Safe Life</h5>
+                    <p>Ваш надежный источник информации о безопасности.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Автор: Липатникова Елизавета Вадимовна</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock content %}
