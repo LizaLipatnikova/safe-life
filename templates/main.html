@@ -11,18 +11,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <span id="active_page" style="display: none;">{{ id_active_page }}</span>
+
                 <ul class="navbar-nav ms-4">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Главная</a>
+                        <a class="nav-link main-menu-link" id="index" href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Статьи</a>
+                        <a class="nav-link main-menu-link" id="articles" href="#">Статьи</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">О нас</a>
+                        <a class="nav-link main-menu-link" id="about" href="#">О нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Обратная связь</a>
+                        <a class="nav-link main-menu-link" id="feedback" href="#">Обратная связь</a>
                     </li>
                 </ul>
             </div>
@@ -49,3 +51,7 @@
         </div>
     </footer>
 {% endblock content %}
+
+{% block js %}
+    <script src="/static/js/menu.js"></script>
+{% endblock js %}
