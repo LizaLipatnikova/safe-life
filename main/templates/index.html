@@ -1,7 +1,27 @@
 {% extends "main.html" %}
 
+{% block title %}Новости Safe-Life{% endblock title %}
+
 {% block main %}
-    <div class="row">
-        <p>Добро пожаловать на Safe-Life - образовательный веб-сайт для изучения дисциплины "Основы Безопасной Жизнедеятельности"</p>   
+    <p class="text-center">Добро пожаловать на Safe-Life - образовательный веб-сайт для изучения дисциплины "Основы Безопасной Жизнедеятельности"</p>   
+
+    <div class="d-flex flex-column gap-2 mt-4">
+        {% for post in posts %}
+            <div class="card col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <div class="card-header bg-main-light text-white">
+                    <h3 class="ps-3 mb-0">{{ post.title }}</h3>
+                </div>
+
+                <div class="card-body d-flex flex-column gap-2">
+                    <p>{{ post.desc }}</p>
+                    {% if post.format_image %}
+                        <img src="{{ post.format_image.url }}" class="img-fluid align-self-center" alt="Изображение {{ post.id }}">
+                    {% endif %}
+                    <small class="text-end">{{ post.created_at }}</small>
+                </div>
+
+                
+            </div>
+        {% endfor %}
     </div>
 {% endblock main %}

@@ -13,3 +13,7 @@ body {
 .bg-main {
     background-color: var(--bs-primary);
 }
+
+.bg-main-light {
+    background-color: #6a994e;
+}
