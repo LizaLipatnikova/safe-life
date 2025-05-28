@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'imagekit',
     'django_ckeditor_5',
-    'bootstrap5',
+    'django_bootstrap5',
     'articles',
     'main',
 ]
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'safeLife.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +118,8 @@ USE_TZ = True
 
 # Обработка статических файлов (CSS, JavaScript, Images)
 STATIC_URL = 'static/' # Адрес для статики
-STATIC_ROOT = BASE_DIR / 'static' # Папка сбора статики командой python manage.py collectstatic
+STATIC_ROOT = BASE_DIR / 'staticfiles' # Папка сбора статики командой python manage.py collectstatic
+STATICFILES_DIRS = [BASE_DIR / 'static', ] # Папка для общих файлов статики
 
 # Медиа файлы (файлы загруженные пользователем)
 MEDIA_URL = '/media/' # Адрес для медиа
