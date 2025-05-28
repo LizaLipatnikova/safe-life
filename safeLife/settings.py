@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'imagekit',
     'django_ckeditor_5',
+    'bootstrap5',
     'articles',
     'main',
 ]
