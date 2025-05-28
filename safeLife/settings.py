@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'imagekit',
-    'django_ckeditor_5',
-    'django_bootstrap5',
+    'imagekit', # Для более продвинутой работы с изображениями
+    'django_ckeditor_5', # WYSIWYG-редактор
+    'solo', # Создание синглтон моделей
+    'django_bootstrap5', # Интеграция Django с bootstrap
     'articles',
     'main',
 ]
