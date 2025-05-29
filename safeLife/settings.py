@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_ckeditor_5', # WYSIWYG-редактор
     'solo', # Создание синглтон моделей
     'django_bootstrap5', # Интеграция Django с bootstrap
+    'feedback',
     'articles',
     'main',
 ]
