@@ -1,0 +1,18 @@
+.accordion-theme .accordion-button {
+    background-color: var(--bs-secondary);
+    color: white;
+}
+
+.accordion-theme .accordion-button.collapsed {
+    background-color: transparent;
+    color: black;
+}
+
+.accordion-theme .accordion-button:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion-link {
+    color: black;
+}

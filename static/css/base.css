@@ -1,7 +1,7 @@
 /* Переопределение стандартной палитры bootstrap */
 :root {
     --bs-primary: #386641;
-    --bs-secondary: #a7c957;
+    --bs-secondary: #6a994e;
 }
 
 body {
@@ -15,5 +15,5 @@ body {
 }
 
 .bg-main-light {
-    background-color: #6a994e;
+    background-color: var(--bs-secondary);
 }

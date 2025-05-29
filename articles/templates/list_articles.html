@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+
+{% load utils %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/accordion.css">
+{% endblock css %}
+
+{% block title %}Статьи Safe-Life{% endblock title %}
+
+{% block main %}
+    <div class="accordion accordion-theme" id="accordion-topics">
+        {% for topic in topics %}
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#{{ topic.id }}"
+                    >
+                        {{ topic.title }}
+                    </button>
+                </h2>
+                <div
+                    id="{{ topic.id }}"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordion-topics"
+                >
+                    <div class="accordion-body">
+                        <ul class="nav list-group">
+                            {% for article in grouped_articles|dict_key:topic %}
+                                <li class="nav-item list-group-item list-group-item-action">
+                                    <a class="nav-link accordion-link" href="">
+                                        {{ article.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock main %}
