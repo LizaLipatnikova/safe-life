@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'solo', # Создание синглтон моделей
     'django_bootstrap5', # Интеграция Django с bootstrap
     'feedback',
+    'user',
     'articles',
     'main',
 ]
