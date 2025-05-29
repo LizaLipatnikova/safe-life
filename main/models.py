@@ -1,6 +1,7 @@
 from django.db import models
 from imagekit.models.fields import ImageSpecField
 from imagekit.processors import ResizeToFit
+from solo.models import SingletonModel
 
 # Модель новостей на главной странице
 class Post(models.Model):
@@ -23,3 +24,19 @@ class Post(models.Model):
         ordering = ('-created_at',)
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
+
+# Создаем отдельную модель для редактирования содержимого на главной странице
+# Поскольку любую информацию Django хранит в виде таблиц, мы используем специальную модель
+# SingletonModel - это таблица только с одной записью, которая нужна для глобального содержимого сайта
+class IndexContent(SingletonModel):
+    text = models.TextField(
+        "Текст",
+        default="Приветствуем вас на сайте!",
+        help_text="Данный текст будет отображаться на главной странице в верхней части"
+    )
+    
+    def __str__(self):
+        return "Приветствие главной страницы"
+
+    class Meta:
+        verbose_name = "Приветствие главной страницы"

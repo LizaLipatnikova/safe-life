@@ -1,9 +1,13 @@
 {% extends "main.html" %}
 
+{% load solo_tags %}
+
 {% block title %}Новости Safe-Life{% endblock title %}
 
 {% block main %}
-    <p class="text-center">Добро пожаловать на Safe-Life - образовательный веб-сайт для изучения дисциплины "Основы Безопасной Жизнедеятельности"</p>   
+    {% get_solo 'main.IndexContent' as greetings %}
+
+    <p class="text-center">{{ greetings.text }}</p>   
 
     <div class="d-flex flex-column gap-2 mt-4">
         {% for post in posts %}
