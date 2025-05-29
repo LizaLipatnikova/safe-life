@@ -2,6 +2,7 @@ from django.db import models
 from imagekit.models.fields import ImageSpecField
 from imagekit.processors import ResizeToFit
 from solo.models import SingletonModel
+from django_ckeditor_5.fields import CKEditor5Field
 
 # Модель новостей на главной странице
 class Post(models.Model):
@@ -40,3 +41,12 @@ class IndexContent(SingletonModel):
 
     class Meta:
         verbose_name = "Приветствие главной страницы"
+
+class About(SingletonModel):
+    text = CKEditor5Field("Текст страницы", default="О нас")
+
+    def __str__(self):
+        return "Страница 'О нас'"
+    
+    class Meta:
+        verbose_name = "Страница 'О нас'"

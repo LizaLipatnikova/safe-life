@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% load solo_tags %}
+
+{% block title %}Новости Safe-Life{% endblock title %}
+
+{% block main %}
+    <!-- Получаем модель страницы и записываем ее в переменную -->
+    {% get_solo 'main.About' as about %}
+
+    {{ about.text }}
+{% endblock main %}
