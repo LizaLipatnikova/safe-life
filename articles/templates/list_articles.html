@@ -9,9 +9,11 @@
 {% block title %}Статьи Safe-Life{% endblock title %}
 
 {% block main %}
+    <!-- Используем аккордеон для деления статьей на темы -->
     <div class="accordion accordion-theme" id="accordion-topics">
         {% for topic in topics %}
             <div class="accordion-item">
+                <!-- Заголовок темы -->
                 <h2 class="accordion-header">
                     <button
                         class="accordion-button collapsed"
@@ -28,7 +30,9 @@
                     data-bs-parent="#accordion-topics"
                 >
                     <div class="accordion-body">
+                        <!-- Начинаем в списке навигации перечислять статьи -->
                         <ul class="nav list-group">
+                            <!-- Из словаря группированных тем получаем статьи определенной темы -->
                             {% for article in grouped_articles|dict_key:topic %}
                                 <li class="nav-item list-group-item list-group-item-action">
                                     <a class="nav-link accordion-link" href="">

@@ -5,17 +5,24 @@
 {% block title %}Новости Safe-Life{% endblock title %}
 
 {% block main %}
+    <!-- Получаем модель главного содержимого и записываем ее под переменной greetings -->
     {% get_solo 'main.IndexContent' as greetings %}
 
+    <!-- Отображение текста приветствия -->
     <p class="text-center">{{ greetings.text }}</p>   
 
+    <!-- Создаем вертикальный контейнер новостей -->
     <div class="d-flex flex-column gap-2 mt-4">
         {% for post in posts %}
+            <!-- Центрируем пост по середине с помощью сетки, учитывая различные размеры экрана -->
             <div class="card col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+
+                <!-- Заголовок новости -->
                 <div class="card-header bg-main-light text-white">
                     <h3 class="ps-3 mb-0">{{ post.title }}</h3>
                 </div>
 
+                <!-- Содержимое -->
                 <div class="card-body d-flex flex-column gap-2">
                     <p>{{ post.desc }}</p>
                     {% if post.format_image %}

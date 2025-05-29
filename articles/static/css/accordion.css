@@ -1,18 +1,22 @@
+/* Когда кнопка активна */
 .accordion-theme .accordion-button {
     background-color: var(--bs-secondary);
     color: white;
 }
 
+/* Когда кнопка неактивна */
 .accordion-theme .accordion-button.collapsed {
     background-color: transparent;
     color: black;
 }
 
+/* Отключение синей рамки у элементов в фокусе */
 .accordion-theme .accordion-button:focus {
     outline: 0;
     box-shadow: none;
 }
 
+/* Меняем стандартный синий цвет ссылки */
 .accordion-link {
     color: black;
 }

@@ -3,14 +3,20 @@
 {% block title %}Safe Life{% endblock title %}
 
 {% block content %}
-    <!-- Навигационное меню -->
+    <!-- Шапка сайта -->
     <nav class="navbar navbar-expand-md navbar-dark bg-main">
         <div class="container">
-            <a class="navbar-brand" href="#">Safe-Life</a>
+            <!-- Логотип -->
+            <a class="navbar-brand" href="{% url "index" %}">Safe-Life</a>
+            
+            <!-- Иконка "бургерного" меню -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- Меню -->
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Метка текущей страницы -->
                 <span id="active_page" style="display: none;">{{ id_active_page }}</span>
 
                 <ul class="navbar-nav ms-4">
