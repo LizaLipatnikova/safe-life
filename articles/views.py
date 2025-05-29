@@ -1,9 +1,11 @@
 from django.views.generic import ListView
 from articles.models import Article, Topic
 from collections import defaultdict
+from main.mixins import MenuMixin
 
 # Список тем и статьей к ним
-class TopicsView(ListView):
+class TopicsView(MenuMixin, ListView):
+    id_page = "articles"
     model = Topic
     template_name = "list_articles.html"
     context_object_name = "topics"
