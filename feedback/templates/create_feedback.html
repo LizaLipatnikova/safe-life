@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block css %}
+    <style>
+        /* Отключаем метку поля, поскольку в этой форме она просто дублируется */
+        label {
+            display: none;
+        }
+    </style>
+{% endblock css %}
+
+{% block title %}Оставить отзыв о Safe-Life{% endblock title %}
+
+{% block main %}
+    <h1>Написать отзыв</h1>
+    <p>Ваше мнение очень важно для нас! Благодаря вашим отзывам мы существенно можем улучшить сайт, а также быстро и оперативно исправлять ошибки</p>
+
+    <form method="post" class="d-flex flex-column">
+        <!-- Токен безопасности для защиты post запросов -->
+        {% csrf_token %}
+
+        <!-- Используем django_bootstrap чтобы стилизовать элементы формы и показать их автоматически -->
+        {% bootstrap_form form %}
+
+        <button type="submit" class="btn btn-main ms-auto">Оставить отзыв</button>
+    </form>
+{% endblock main %}

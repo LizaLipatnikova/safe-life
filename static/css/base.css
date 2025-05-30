@@ -17,3 +17,13 @@ body {
 .bg-main-light {
     background-color: var(--bs-secondary);
 }
+
+.btn-main {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.btn-main:hover {
+    background-color: var(--bs-secondary);
+    color: white;
+}
