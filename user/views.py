@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+# Страница, сообщающая пользователя о необходимости атуентификации
+class AuthWarningView(TemplateView):
+    template_name = "auth_warning.html"
