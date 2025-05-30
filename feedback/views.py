@@ -1,5 +1,5 @@
 from django.forms import BaseModelForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from feedback.models import Feedback
@@ -24,3 +24,8 @@ class CreateFeedbackView(LoginRequiredMixin, MenuMixin, CreateView):
     def form_valid(self, form: BaseModelForm):
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+# Страница успешного отзыва
+class SuccessFeedbackView(MenuMixin, TemplateView):
+    id_page = "feedback"
+    template_name = "success_feedback.html"

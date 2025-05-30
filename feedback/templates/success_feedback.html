@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block title %}Ваш отзыв отправлен Safe-Life{% endblock title %}
+
+{% block main %}
+    <div class="d-flex flex-column align-items-center">
+        <h1>Отзыв отправлен!</h1>
+        <p>Благодарим за потраченное время</p>
+        <a href="{% url "index" %}" class="btn btn-main">На главную</a>
+    </div>
+{% endblock main %}
