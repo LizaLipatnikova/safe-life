@@ -1,7 +1,14 @@
 {% extends "main.html" %}
 
-{% block title %}Тестирование Safe-Life{% endblock title %}
+{% block css %}
+    <style>
+        .card-result {
+            display: none;
+        }
+    </style>
+{% endblock css %}
 
+{% block title %}Тестирование Safe-Life{% endblock title %}
 
 {% block main %}
     <div class="d-flex flex-column gap-4">
@@ -19,7 +26,7 @@
                     <ul class="list-group list-group-flush">
                         <!-- Получаем все ответы данного вопроса -->
                         {% for answer in question.answers.all %}
-                            <li class="list-group-item">
+                            <li class="list-group-item answer">
                                 <input
                                     class="form-check-input me-1"
                                     type="radio"
@@ -34,5 +41,28 @@
                 </div>
             </div>
         {% endfor %}
+        
+        <div class="d-flex align-items-center justify-content-center gap-5">
+            <button class="btn btn-main" id="check-btn">Проверить</button>
+
+            <div class="card card-result">
+                <div class="card-body">
+                    <h3>Результат:</h4>
+
+                    <h2 class="text-center">
+                        <span id="current-points"></span>
+                        /
+                        <span id="max-points"></span>
+                    </h2>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock main %}
+
+{% block js %}
+    <!-- Подключает скрипт меню, поскольку блоки в Django переопределяют родителия, игнорируя его контент в его блоке -->
+    <script src="/static/js/menu.js"></script>
+    <!-- Подключаем скрипт для логики проверки вопросов -->
+     <script src="/static/js/check_test.js"></script>
+{% endblock js %}
