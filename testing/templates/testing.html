@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+
+{% block title %}Тестирование Safe-Life{% endblock title %}
+
+
+{% block main %}
+    <div class="d-flex flex-column gap-4">
+        {% for question in questions %}
+            <!-- Записываем вес вопроса, чтобы потом использовать его в вычислениях на JS -->
+            <div class="card question" data-weight="{{ question.weight }}">
+
+                <!-- Текст вопроса -->
+                <div class="card-header">
+                    <h4 class="ps-1">{{ question.question }}</h3>
+                </div>
+                
+                <!-- Варианты ответа -->
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <!-- Получаем все ответы данного вопроса -->
+                        {% for answer in question.answers.all %}
+                            <li class="list-group-item">
+                                <input
+                                    class="form-check-input me-1"
+                                    type="radio"
+                                    name="{{ question.question }}"
+                                    value="{{ answer.answer }}"
+                                    id="{{ answer.pk }}"
+                                    data-correct="{{ answer.is_correct }}"> <!-- Пометка правильного ответа -->
+                                <label class="form-check-label stretched-link" for="{{ answer.pk }}">{{ answer.answer }}</label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock main %}
