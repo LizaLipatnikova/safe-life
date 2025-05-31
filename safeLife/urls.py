@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('feedback/', include("feedback.urls")),
     path('articles/', include("articles.urls")),
+    path('test/', include("testing.urls")),
     path('user/', include("user.urls")),
     path('', include("main.urls")),
     path('ckeditor5/', include('django_ckeditor_5.urls')), # Пути для редактора
