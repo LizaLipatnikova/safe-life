@@ -8,7 +8,7 @@ class StartTestingView(LoginRequiredMixin, MenuMixin, TemplateView):
     id_page = "test"
     template_name = "start_testing.html"
 
-class QuestionsListView(MenuMixin, ListView):
+class QuestionsListView(LoginRequiredMixin, MenuMixin, ListView):
     id_page = "test"
     model = Question
     template_name = "testing.html"
