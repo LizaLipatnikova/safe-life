@@ -1,0 +1,10 @@
+{% extends "user_form.html" %}
+
+{% block title %}Регистрация Safe-Life{% endblock title %}
+
+{% block title_form %}Регистрация{% endblock title_form %}
+
+{% block buttons %}
+    <button type="submit" class="btn btn-main">Создать аккаунт</button>
+    <a href="{% url "registration" %}" class="btn btn-outline-main">Вход</a>
+{% endblock buttons %}
