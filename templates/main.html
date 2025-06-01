@@ -21,19 +21,19 @@
 
                 <ul class="navbar-nav ms-lg-4 me-auto">
                     <li class="nav-item">
-                        <a class="nav-link main-menu-link" id="index" href="{% url "index" %}">Главная</a>
+                        <a class="nav-link" id="index" href="{% url "index" %}">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link main-menu-link" id="articles" href="{% url "articles" %}">Статьи</a>
+                        <a class="nav-link" id="articles" href="{% url "articles" %}">Статьи</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link main-menu-link" id="about" href="{% url "about" %}">О нас</a>
+                        <a class="nav-link" id="about" href="{% url "about" %}">О нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link main-menu-link" id="feedback" href="{% url "create_feedback" %}">Обратная связь</a>
+                        <a class="nav-link" id="feedback" href="{% url "create_feedback" %}">Обратная связь</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link main-menu-link" id="test" href="{% url "start_test" %}">Онлайн тест</a>
+                        <a class="nav-link" id="test" href="{% url "start_test" %}">Онлайн тест</a>
                     </li>
                 </ul>
 
@@ -48,8 +48,8 @@
                             </li>
                         {% endif %}
 
-                        <li class="nav-tem">
-                            <a href="{% url "account" %}" class="nav-link">Личный кабинет</a>
+                        <li class="nav-item">
+                            <a href="{% url "account" %}" id="account" class="nav-link">Личный кабинет</a>
                         </li>
                     {% else %}
                         <!-- Если пользователь не авторизован -->
