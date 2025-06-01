@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <main class="container flex-grow-1 p-5">
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 mt-4">
+            <h1>
+                {% block title_form %}{% endblock title_form %}
+            </h1>
+            <form method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+
+                <div class="d-flex flex-column mt-4 gap-3">
+                    {% block buttons %}{% endblock buttons %}
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock content %}

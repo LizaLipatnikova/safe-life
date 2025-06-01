@@ -27,3 +27,14 @@ body {
     background-color: var(--bs-secondary);
     color: white;
 }
+
+.btn-outline-main {
+    border-color: var(--bs-primary);
+    color: var(--bs-primary);
+}
+
+.btn-outline-main:hover {
+    border-color: var(--bs-secondary);
+    background-color: var(--bs-secondary);
+    color: white;
+}
