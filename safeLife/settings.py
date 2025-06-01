@@ -177,4 +177,7 @@ DJANGO_CKEDITOR_5_UPLOAD_PATH = "ckeditor/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = "/user/warning/"
+# Настройка переадресации для аутентификации
+LOGIN_URL = "/user/warning/" # Маршрут для представлений с ограниченным доступом
+LOGIN_REDIRECT_URL = "/user/account/" # Маршрут после успешной авторизации
+LOGOUT_REDIRECT_URL = "/" # Маршрут после выхода из аккаунта
