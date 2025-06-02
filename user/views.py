@@ -2,7 +2,9 @@ from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from main.mixins import MenuMixin
 
 # Страница, сообщающая пользователя о необходимости атуентификации
 class AuthWarningView(TemplateView):
@@ -11,7 +13,6 @@ class AuthWarningView(TemplateView):
 # Авторизация
 class UserLoginView(LoginView):
     template_name = "login.html"
-    success_url = reverse_lazy("account")
 
 # Регистрация
 class RegistrationView(CreateView):
@@ -21,7 +22,8 @@ class RegistrationView(CreateView):
     form_class = UserCreationForm
 
 # Личный кабинет
-class AccountView(TemplateView):
+class AccountView(LoginRequiredMixin, MenuMixin, TemplateView):
+    id_page = "account"
     template_name = "account.html"
 
 # Выход из аккаунта. LogoutView не имеет специфических настроек, поэтому класс пустой
