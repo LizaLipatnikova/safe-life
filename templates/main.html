@@ -68,6 +68,12 @@
 
     <!-- Основное содержимое -->
     <main class="container mt-4 flex-grow-1">
+        <nav>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}{% endblock breadcrumb %}
+            </ol>
+        </nav>
+
         {% block main %}{% endblock main %}
     </main>
 

@@ -4,6 +4,11 @@
 
 {% block title %}Обновить аккаунт Safe-life{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url "account" %}">Личный кабинет</a></li>
+    <li class="breadcrumb-item active">Редактирование</li>
+{% endblock breadcrumb %}
+
 {% block main %}
     <div class="col-md-8 offset-md-2">
         <h1>Обновить аккаунт</h1>

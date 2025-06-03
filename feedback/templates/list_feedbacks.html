@@ -2,6 +2,11 @@
 
 {% block title %}Ваши отзывы Safe-Life{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url "account" %}">Личный кабинет</a></li>
+    <li class="breadcrumb-item active">Мои отзывы</li>
+{% endblock breadcrumb %}
+
 {% block main %}
     <h1>Ваши отзывы</h1>
 

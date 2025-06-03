@@ -4,6 +4,10 @@
 
 {% block title %}Новости Safe-Life{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Главная</li>
+{% endblock breadcrumb %}
+
 {% block main %}
     <!-- Получаем модель главного содержимого и записываем ее под переменной greetings -->
     {% get_solo 'main.IndexContent' as greetings %}

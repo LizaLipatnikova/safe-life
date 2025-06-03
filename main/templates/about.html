@@ -4,6 +4,10 @@
 
 {% block title %}Новости Safe-Life{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">О нас</li>
+{% endblock breadcrumb %}
+
 {% block main %}
     <!-- Получаем модель страницы и записываем ее в переменную -->
     {% get_solo 'main.About' as about %}

@@ -2,6 +2,11 @@
 
 {% block title %}Ваш отзыв отправлен Safe-Life{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url "create_feedback" %}">Обратная связь</a></li>
+    <li class="breadcrumb-item active">Отзыв создан</li>
+{% endblock breadcrumb %}
+
 {% block main %}
     <div class="d-flex flex-column align-items-center">
         <h1>Отзыв отправлен!</h1>

@@ -10,6 +10,11 @@
 
 {% block title %}Тестирование Safe-Life{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url "start_test" %}">Онлайн тестирование</a></li>
+    <li class="breadcrumb-item active">Вопросы</li>
+{% endblock breadcrumb %}
+
 {% block main %}
     <div class="d-flex flex-column gap-4">
         {% for question in questions %}
