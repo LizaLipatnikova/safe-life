@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}Обновить аккаунт Safe-life{% endblock title %}
+
+{% block main %}
+    <div class="col-md-8 offset-md-2">
+        <h1>Обновить аккаунт</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+
+            <div class="row mt-4">
+                <div class="col">
+                    <a href="{% url "account" %}" class="btn btn-outline-main w-100">Отмена</a>
+                </div>
+                
+                <div class="col">
+                    <button type="submit" class="btn btn-main w-100">Обновить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock main %}

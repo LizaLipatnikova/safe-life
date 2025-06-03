@@ -19,7 +19,7 @@
                 <div class="d-flex flex-column">
                     <!-- Определяем аватар пользователя -->
                     {% if user.profile.avatar %}
-                        <img src="{{ user.profile.avatar.url }}" alt="avatar" class="avatar">
+                        <img src="{{ user.profile.avatar_format.url }}" alt="avatar" class="avatar">
                     {% else %}
                         <img src="/static/img/anonymous.png" alt="avatar" class="avatar">
                     {% endif %}
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-lg-7 col-xl-4">
-                <a href="" class="btn btn-outline-main w-100">Редактировать</a>
+                <a href="{% url "account_edit" user.id %}" class="btn btn-outline-main w-100">Редактировать</a>
             </div>
 
             <form action="{% url "logout" %}" method="post" class="col-lg-7 col-xl-4">
