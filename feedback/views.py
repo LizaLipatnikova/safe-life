@@ -1,5 +1,5 @@
 from django.forms import BaseModelForm
-from django.views.generic import CreateView, TemplateView, ListView
+from django.views.generic import CreateView, TemplateView, ListView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from feedback.models import Feedback
@@ -40,3 +40,8 @@ class ListFeedbacksView(LoginRequiredMixin, MenuMixin, ListView):
     # Получаем отзывы текущего пользователя
     def get_queryset(self):
         return Feedback.objects.filter(user=self.request.user)
+
+# Удаление отзыва
+class DeleteFeedbackView(LoginRequiredMixin, DeleteView):
+    model = Feedback
+    success_url = reverse_lazy("list_feedbacks")
