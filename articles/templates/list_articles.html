@@ -31,11 +31,11 @@
                 >
                     <div class="accordion-body">
                         <!-- Начинаем в списке навигации перечислять статьи -->
-                        <ul class="nav list-group">
+                        <ul class="nav list-group list-group-flush">
                             <!-- Из словаря группированных тем получаем статьи определенной темы -->
                             {% for article in grouped_articles|dict_key:topic %}
                                 <li class="nav-item list-group-item list-group-item-action">
-                                    <a class="nav-link accordion-link" href="">
+                                    <a class="nav-link accordion-link" href="{% url "article" article.id %}">
                                         {{ article.title }}
                                     </a>
                                 </li>

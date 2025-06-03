@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from articles.models import Article, Topic
 from collections import defaultdict
 from main.mixins import MenuMixin
@@ -28,3 +28,10 @@ class TopicsView(MenuMixin, ListView):
         
         context["grouped_articles"] = grouped_articles
         return context
+
+# Страница статьи
+class ArticleView(MenuMixin, DetailView):
+    id_page = "articles"
+    model = Article
+    template_name = "article.html"
+    context_object_name = "article"
