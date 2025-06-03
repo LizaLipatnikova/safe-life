@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import Post, IndexContent
+from main.models import Post, IndexContent, About
 from solo.admin import SingletonModelAdmin
 
 # Регистрируем модель на административной панели с помощью декоратора
@@ -9,3 +9,4 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ["title", "created_at",]
 
 admin.site.register(IndexContent, SingletonModelAdmin)
+admin.site.register(About, SingletonModelAdmin)

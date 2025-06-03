@@ -12,5 +12,5 @@
     <!-- Получаем модель страницы и записываем ее в переменную -->
     {% get_solo 'main.About' as about %}
 
-    {{ about.text }}
+    {{ about.text|safe }}
 {% endblock main %}
