@@ -2,6 +2,9 @@ from django.views.generic import ListView, DetailView
 from articles.models import Article, Topic
 from collections import defaultdict
 from main.mixins import MenuMixin
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from htmldocx import HtmlToDocx
 
 # Список тем и статьей к ним
 class TopicsView(MenuMixin, ListView):
@@ -35,3 +38,27 @@ class ArticleView(MenuMixin, DetailView):
     model = Article
     template_name = "article.html"
     context_object_name = "article"
+
+
+
+# Экспорт статьи в pdf
+def export_docx(request, pk):
+    article = Article.objects.get(pk=pk)
+    
+    # Рендерим HTML шаблон с содержимым
+    html_string = render_to_string('export_article.html', {
+        'content': article.content
+    })
+
+    # Создаем PDF из HTML
+    new_parser = HtmlToDocx()
+    document = new_parser.parse_html_string(html_string)
+
+    # Создаем HTTP-ответ
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    response['Content-Disposition'] = f'attachment; filename=export_{pk}.docx'
+
+    # Записываем файл в ответ
+    document.save(response)
+
+    return response

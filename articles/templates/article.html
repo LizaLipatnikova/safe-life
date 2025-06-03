@@ -9,7 +9,13 @@
 
 {% block main %}
     <h1>{{ article.title }}</h1>
-    <small>Дата обновления: {{ article.update_at }}</small>
+
+    <div class="d-flex justify-content-between">
+        <small>Дата обновления: {{ article.update_at }}</small>
+        
+        <a href="{% url "export_article" article.id %}" class="btn btn-main">Экспорт в docx</a>
+    </div>
+
     <div class="mt-3">
         <!-- Вставляем содержимое статьи. По умолчанию Django экранирует html из базы данных, поэтому используем safe фильтр, чтобы обойти это -->
         {{ article.content|safe  }}
