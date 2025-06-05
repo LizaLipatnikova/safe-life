@@ -11,21 +11,28 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Подключаем переменные окружения
+# Устанавливаем значения по умолчанию
+env = environ.Env(
+    DEBUG=(bool, False),
+    SECRET_KEY=(str, 'django-insecure-%21eprm9=vigr-l=#dwgl7$th66rhzhcqrms2wmz)87jd1*_%9'),
+)
+
+# Читает файл .env
+environ.Env.read_env(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%21eprm9=vigr-l=#dwgl7$th66rhzhcqrms2wmz)87jd1*_%9'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# Производственные настройки
+SECRET_KEY = env("SECRET_KEY") # Секретный ключ для шифровки трафика
+DEBUG = env("DEBUG") # Влкючение дебаг режим для отладки и дополнительной информации
+ALLOWED_HOSTS = ["*"] # Хосты сайта. Здесь надо указать домен сайта, чтобы django мог работать с запросами на этот домен
 
 
 # Application definition
@@ -82,10 +89,7 @@ WSGI_APPLICATION = 'safeLife.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db(default="sqlite:/db.sqlite3")
 }
 
 
